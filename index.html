@@ -7,7 +7,9 @@
 <script>try{var s=localStorage.getItem('theme');if(s?s==='dark':matchMedia('(prefers-color-scheme: dark)').matches)document.documentElement.dataset.theme='dark'}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="icon" href="logo.png">
+<link rel="icon" type="image/png" href="favicon.png?v=2">
+<link rel="shortcut icon" href="favicon.ico?v=2">
+<link rel="apple-touch-icon" href="favicon.png?v=2">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -326,8 +328,8 @@ h2{font-size:clamp(2rem,5vw,4rem);letter-spacing:-.03em;line-height:1.05;color:v
       <div>
         <a class="flogo" href="#top"><img src="logo.png" alt="">AUTO FUSION</a>
         <p class="tag">Rev up your ride.</p>
-        <a class="fc" href="mailto:info@autofusion.lk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7.5l8.5 6 8.5-6"/></svg>info@autofusion.lk</a>
-        <a class="fc" href="tel:+94777221182"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h3.5l1.8 4.5-2.3 1.4a11 11 0 0 0 6.1 6.1l1.4-2.3 4.5 1.8V19a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>+94 777 22 11 82</a>
+        <a class="fc" href="mailto:your-email@example.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7.5l8.5 6 8.5-6"/></svg>your-email@example.com</a>
+        <a class="fc" href="tel:+000000000000"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h3.5l1.8 4.5-2.3 1.4a11 11 0 0 0 6.1 6.1l1.4-2.3 4.5 1.8V19a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>+00 000 000 000</a>
       </div>
       <div>
         <h4>Shop</h4>
@@ -348,7 +350,7 @@ h2{font-size:clamp(2rem,5vw,4rem);letter-spacing:-.03em;line-height:1.05;color:v
       <span class="soc">
         <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.2h-3.1V7.8c0-.9.3-1.5 1.6-1.5h1.7V3.4c-.3 0-1.3-.1-2.4-.1-2.4 0-4.1 1.5-4.1 4.2v2.3H7.5V13h2.8v8z"/></svg></a>
         <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".9" fill="currentColor" stroke="none"/></svg></a>
-        <a href="https://wa.me/94777221182" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3.5 20.5l1.3-4.6A8.5 8.5 0 1 1 8.3 19.3z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-.9.8c-1-.4-2-1.4-2.4-2.4l.8-.9-1-2z" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3.5 20.5l1.3-4.6A8.5 8.5 0 1 1 8.3 19.3z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-.9.8c-1-.4-2-1.4-2.4-2.4l.8-.9-1-2z" fill="currentColor" stroke="none"/></svg></a>
       </span>
     </div>
   </div>
@@ -436,7 +438,7 @@ $('#count').textContent = cartCount();
 function bump(){ const b = $('#cart'); b.classList.remove('bump'); void b.offsetWidth; b.classList.add('bump'); }
 $('#cart').addEventListener('click', () => { location.hash = '#/cart'; });
 
-const WHATSAPP = '94777221182';
+const WHATSAPP = ''; // add your WhatsApp number with country code, digits only
 const waLink = () => WHATSAPP ? `https://wa.me/${WHATSAPP}` : '#/contact';
 const ext = () => WHATSAPP ? ' target="_blank" rel="noopener"' : '';
 function orderLink(items, total){
@@ -486,7 +488,7 @@ const CATS = {
 };
 const page = $('#page');
 const iMail = '<svg style="width:16px;height:16px;vertical-align:-3px;margin-right:8px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7.5l8.5 6 8.5-6"/></svg>', iTel = '<svg style="width:16px;height:16px;vertical-align:-3px;margin-right:8px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h3.5l1.8 4.5-2.3 1.4a11 11 0 0 0 6.1 6.1l1.4-2.3 4.5 1.8V19a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>';
-const waBtn = () => `<a class="btn" href="${waLink()}"${ext()}>Message on WhatsApp</a><p style="margin-top:26px">${iMail}<a href="mailto:info@autofusion.lk"><b>info@autofusion.lk</b></a><br>${iTel}<a href="tel:+94777221182"><b>+94 777 22 11 82</b></a></p>`;
+const waBtn = () => `<a class="btn" href="${waLink()}"${ext()}>Message on WhatsApp</a><p style="margin-top:26px">${iMail}<a href="mailto:your-email@example.com"><b>your-email@example.com</b></a><br>${iTel}<a href="tel:+000000000000"><b>+00 000 000 000</b></a></p>`;
 const INFO = {
   contact: ['Contact us.', 'Questions about a product or an order? Message us and we will reply as soon as we can.', waBtn],
   track: ['Track your order.', 'Order tracking is coming soon. For an update on an existing order, message us with your name and the items you ordered.', waBtn],
