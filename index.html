@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Auto Fusion is a car accessories store: steering wheels, car audio and OBD HUDs.">
 <title>Auto Fusion | Car Accessories</title>
 <script>try{var s=localStorage.getItem('theme');if(s?s==='dark':matchMedia('(prefers-color-scheme: dark)').matches)document.documentElement.dataset.theme='dark'}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,17 +42,18 @@ nav ul a:hover{opacity:1}
 .hero{height:240vh;position:relative}
 .stage{position:sticky;top:0;height:100vh;overflow:hidden;display:grid;place-items:center;
   background:radial-gradient(120% 90% at 50% 110%,#FFFF9E,var(--leaf) 70%)}
-.title{position:absolute;top:22vh;text-align:center;will-change:transform,opacity}
-.title h1{font-size:clamp(3.4rem,13vw,11rem);font-weight:800;letter-spacing:-.05em;line-height:.95;color:var(--text)}
+.title{position:absolute;top:15vh;text-align:center;will-change:transform,opacity;padding:0 5vw}
+.title h1{font-size:clamp(3rem,11vw,8.5rem);font-weight:800;letter-spacing:-.05em;line-height:.95;color:var(--text)}
 .title h1 span{display:inline-block;opacity:0;transform:translateY(60px);animation:rise 1s var(--ease) forwards}
 @keyframes rise{to{opacity:1;transform:none}}
 .sub{position:absolute;top:34vh;font-size:clamp(1.2rem,3vw,2.2rem);font-weight:600;color:var(--ink);opacity:0;text-align:center;padding:0 5vw}
 .drive{position:absolute;bottom:14vh;left:0;width:100%;transform:translateX(-110vw);transition:transform 1.8s var(--ease) .3s}
 .loaded .drive{transform:none}
-.car{width:min(78vw,760px);margin:0 auto;display:block;will-change:transform}
+.car{width:min(78vw,760px,85vh);margin:0 auto;display:block;will-change:transform}
 .wheel{transform-box:fill-box;transform-origin:center}
 .road{position:absolute;bottom:calc(14vh + 2px);left:0;width:100%;height:3px;background:var(--text)}
-.hint{position:absolute;bottom:4vh;font-size:.8rem;opacity:.6;animation:float 2s ease-in-out infinite}
+.hint{position:absolute;bottom:3vh;display:flex;align-items:center;gap:8px;font-size:.9rem;font-weight:600;padding:9px 18px;border-radius:99px;background:var(--text);color:var(--bg);transition:opacity .4s;animation:float 2s ease-in-out infinite}
+.hint svg{width:16px;height:16px}
 @keyframes float{50%{transform:translateY(8px)}}
 
 /* Marquee */
@@ -166,6 +168,20 @@ h2{font-size:clamp(2rem,5vw,4rem);letter-spacing:-.03em;line-height:1.05;color:v
 .soon .btn{background:#0B0B0B;color:#fff}
 @media (max-width:600px){.crow{grid-template-columns:56px 1fr auto}.crow img{width:56px;height:56px}}
 
+/* Hero clarity */
+.tagline{margin:14px auto 0;max-width:34ch;font-size:clamp(1rem,2.2vw,1.35rem);font-weight:600;color:var(--ink)}
+.title .btn{margin-top:20px;background:var(--btn);color:var(--btn-text)}
+.thumbs{display:flex;justify-content:center;gap:10px;margin-top:20px}
+.thumbs a{width:58px;height:58px;border-radius:14px;overflow:hidden;background:#fff;border:2px solid var(--text);transition:transform .4s var(--ease)}
+.thumbs a:hover{transform:translateY(-5px) scale(1.06)}
+.thumbs img{width:100%;height:100%;object-fit:cover;display:block}
+@media (max-height:760px){.thumbs{display:none}}
+
+/* Tile call to action */
+.go{align-self:flex-start;margin-top:14px;display:inline-flex;padding:8px 16px;border-radius:99px;background:#0B0B0B;color:#fff;font-weight:600;font-size:.85rem;transition:transform .4s var(--ease)}
+.tile:hover .go{transform:translateX(6px)}
+.t4 .go,[data-theme=dark] .t2 .go,[data-theme=dark] .t3 .go{background:var(--leaf);color:#0B0B0B}
+
 /* Footer */
 .foot{background:#0A0A0C;color:#cfcfc8;padding:80px 5vw 0}
 .foot-in{max-width:1100px;margin:0 auto}
@@ -194,7 +210,7 @@ h2{font-size:clamp(2rem,5vw,4rem);letter-spacing:-.03em;line-height:1.05;color:v
 @media (max-width:760px){
   nav ul{display:none}
   .t1,.t2,.t3,.t4{grid-column:span 6}
-  .title{top:18vh}
+  .title{top:13vh}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
@@ -223,6 +239,14 @@ h2{font-size:clamp(2rem,5vw,4rem);letter-spacing:-.03em;line-height:1.05;color:v
   <div class="stage">
     <div class="title" id="title">
       <h1><span style="animation-delay:.1s">Auto</span> <span style="animation-delay:.25s">Fusion</span></h1>
+      <p class="tagline">Shop car accessories online: steering wheels, car audio and OBD HUDs.</p>
+      <a class="btn" href="#picks">Shop now</a>
+      <div class="thumbs">
+        <a href="#/car-audio" aria-label="Car audio"><img src="products/carplay.jpg" alt="Apple CarPlay player"></a>
+        <a href="#/steering-wheels" aria-label="Steering wheels"><img src="products/momo-suede.jpg" alt="Suede steering wheel"></a>
+        <a href="#/steering-wheels" aria-label="Steering wheels"><img src="products/quickrelease.jpg" alt="Quick-release hub"></a>
+        <a href="#/obd-huds" aria-label="OBD HUDs"><img src="products/obd-hud.jpg" alt="OBD2 HUD display"></a>
+      </div>
     </div>
     <p class="sub" id="sub">Rev up your ride.</p>
     <div class="road"></div>
@@ -278,24 +302,13 @@ h2{font-size:clamp(2rem,5vw,4rem);letter-spacing:-.03em;line-height:1.05;color:v
         <circle cx="458" cy="168" r="42" fill="url(#tire)"/><circle cx="458" cy="168" r="37" fill="none" stroke="#000" stroke-opacity=".4"/><circle cx="458" cy="168" r="30" fill="url(#disc)"/><path d="M466 144 A26 26 0 0 1 483 162 L474 165 A16 16 0 0 0 464 153 Z" fill="#E5242B"/><g class="wheel" id="w2"><circle cx="458" cy="168" r="40" fill="none"/><rect x="430" y="164.5" width="56" height="7" rx="3.5" fill="url(#gold)" transform="rotate(0 458 168)"/><rect x="430" y="164.5" width="56" height="7" rx="3.5" fill="url(#gold)" transform="rotate(60 458 168)"/><rect x="430" y="164.5" width="56" height="7" rx="3.5" fill="url(#gold)" transform="rotate(120 458 168)"/><circle cx="458" cy="168" r="29" fill="none" stroke="url(#gold)" stroke-width="4"/><circle cx="458" cy="168" r="31.5" fill="none" stroke="#fff" stroke-opacity=".45" stroke-width=".8"/><circle cx="458" cy="168" r="8" fill="url(#gold)"/><circle cx="458" cy="168" r="2.6" fill="#141414"/><circle cx="458" cy="132" r="2.4" fill="#e8e8e8"/></g>
       </svg>
     </div>
-    <span class="hint">Scroll to drive</span>
+    <span class="hint">Scroll down <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16M5 13l7 7 7-7"/></svg></span>
   </div>
 </header>
 
 
 
-<section class="block" id="shop">
-  <h2 class="reveal">Find what your car is missing.</h2>
-  <p class="lead reveal" style="--d:.1s">Steering wheels, car audio, and OBD displays to start with.</p>
-  <div class="grid">
-    <a href="#/steering-wheels" class="tile t1 reveal"><span class="ico">🛞</span><h3>Steering wheels</h3><p>Suede and leather wheels, plus quick-release hubs</p></a>
-    <a href="#/car-audio" class="tile t2 reveal" style="--d:.1s"><span class="ico">🔊</span><h3>Car audio</h3><p>CarPlay players</p></a>
-    <a href="#/obd-huds" class="tile t3 reveal" style="--d:.2s"><span class="ico">📊</span><h3>OBD HUDs</h3><p>Live data on your dash</p></a>
-    <a href="#/coming-soon" class="tile t4 reveal" style="--d:.3s"><span class="ico">🔧</span><h3>More coming soon</h3><p>We are adding new accessories to the range</p></a>
-  </div>
-</section>
-
-<section class="block" id="picks" style="padding-top:0">
+<section class="block" id="picks">
   <h2 class="reveal">Shop our products.</h2>
   <div class="filter reveal">
     <div class="f-head"><h3>Filter by price</h3><span id="shown">Showing all 4 products</span></div>
@@ -315,9 +328,20 @@ h2{font-size:clamp(2rem,5vw,4rem);letter-spacing:-.03em;line-height:1.05;color:v
   <p class="empty" id="empty" hidden>No products in this price range. Move the sliders to widen it.</p>
 </section>
 
+<section class="block" id="shop" style="padding-top:0">
+  <h2 class="reveal">Find what your car is missing.</h2>
+  <p class="lead reveal" style="--d:.1s">Tap a category to see its products.</p>
+  <div class="grid">
+    <a href="#/steering-wheels" class="tile t1 reveal"><span class="ico">🛞</span><h3>Steering wheels</h3><p>Suede and leather wheels, plus quick-release hubs</p><span class="go">Shop now &rarr;</span></a>
+    <a href="#/car-audio" class="tile t2 reveal" style="--d:.1s"><span class="ico">🔊</span><h3>Car audio</h3><p>CarPlay players</p><span class="go">Shop now &rarr;</span></a>
+    <a href="#/obd-huds" class="tile t3 reveal" style="--d:.2s"><span class="ico">📊</span><h3>OBD HUDs</h3><p>Live data on your dash</p><span class="go">Shop now &rarr;</span></a>
+    <a href="#/coming-soon" class="tile t4 reveal" style="--d:.3s"><span class="ico">🔧</span><h3>More coming soon</h3><p>We are adding new accessories to the range</p><span class="go">See more &rarr;</span></a>
+  </div>
+</section>
+
 <section class="cta reveal" id="contact">
   <h2>Your car, your style.</h2>
-  <a class="btn" href="#shop">Shop all accessories</a>
+  <a class="btn" href="#picks">Shop all accessories</a>
 </section>
 </main>
 <main id="page" hidden></main>
@@ -328,8 +352,8 @@ h2{font-size:clamp(2rem,5vw,4rem);letter-spacing:-.03em;line-height:1.05;color:v
       <div>
         <a class="flogo" href="#top"><img src="logo.png" alt="">AUTO FUSION</a>
         <p class="tag">Rev up your ride.</p>
-        <a class="fc" href="mailto:your-email@example.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7.5l8.5 6 8.5-6"/></svg>your-email@example.com</a>
-        <a class="fc" href="tel:+000000000000"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h3.5l1.8 4.5-2.3 1.4a11 11 0 0 0 6.1 6.1l1.4-2.3 4.5 1.8V19a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>+00 000 000 000</a>
+        <a class="fc" href="mailto:info@autofusion.lk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7.5l8.5 6 8.5-6"/></svg>info@autofusion.lk</a>
+        <a class="fc" href="tel:+94777221182"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h3.5l1.8 4.5-2.3 1.4a11 11 0 0 0 6.1 6.1l1.4-2.3 4.5 1.8V19a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>+94 777 22 11 82</a>
       </div>
       <div>
         <h4>Shop</h4>
@@ -350,7 +374,7 @@ h2{font-size:clamp(2rem,5vw,4rem);letter-spacing:-.03em;line-height:1.05;color:v
       <span class="soc">
         <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.2h-3.1V7.8c0-.9.3-1.5 1.6-1.5h1.7V3.4c-.3 0-1.3-.1-2.4-.1-2.4 0-4.1 1.5-4.1 4.2v2.3H7.5V13h2.8v8z"/></svg></a>
         <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".9" fill="currentColor" stroke="none"/></svg></a>
-        <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3.5 20.5l1.3-4.6A8.5 8.5 0 1 1 8.3 19.3z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-.9.8c-1-.4-2-1.4-2.4-2.4l.8-.9-1-2z" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://wa.me/94777221182" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3.5 20.5l1.3-4.6A8.5 8.5 0 1 1 8.3 19.3z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-.9.8c-1-.4-2-1.4-2.4-2.4l.8-.9-1-2z" fill="currentColor" stroke="none"/></svg></a>
       </span>
     </div>
   </div>
@@ -365,16 +389,18 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 addEventListener('load', () => document.body.classList.add('loaded'));
 
 // Scroll-driven hero: car drives off, wheels spin, title shrinks, tagline fades in/out
-const home = $('#home'), hero = $('#top'), car = $('#car'), title = $('#title'), sub = $('#sub');
+const hint = $('.hint'), home = $('#home'), hero = $('#top'), car = $('#car'), title = $('#title'), sub = $('#sub');
 const wheels = [$('#w1'), $('#w2')];
 function onScroll(){
   if (reduce || home.hidden) return;
+  hint.style.opacity = scrollY > 40 ? 0 : 1;
   const max = hero.offsetHeight - innerHeight;
   const p = Math.min(Math.max(scrollY / max, 0), 1);
   car.style.transform = `translateX(${p * 85}vw)`;
   wheels.forEach(w => w.style.transform = `rotate(${p * 1440}deg)`);
   title.style.transform = `scale(${1 - p * .25}) translateY(${-p * 40}px)`;
   title.style.opacity = Math.max(1 - p * 1.4, 0);
+  title.style.pointerEvents = p > .3 ? 'none' : 'auto';
   const s = p < .25 ? p / .25 : p > .75 ? (1 - p) / .25 : 1;
   sub.style.opacity = Math.min(Math.max(s, 0), 1) * Math.min(p * 3, 1);
 }
@@ -438,7 +464,7 @@ $('#count').textContent = cartCount();
 function bump(){ const b = $('#cart'); b.classList.remove('bump'); void b.offsetWidth; b.classList.add('bump'); }
 $('#cart').addEventListener('click', () => { location.hash = '#/cart'; });
 
-const WHATSAPP = ''; // add your WhatsApp number with country code, digits only
+const WHATSAPP = '94777221182';
 const waLink = () => WHATSAPP ? `https://wa.me/${WHATSAPP}` : '#/contact';
 const ext = () => WHATSAPP ? ' target="_blank" rel="noopener"' : '';
 function orderLink(items, total){
@@ -488,7 +514,7 @@ const CATS = {
 };
 const page = $('#page');
 const iMail = '<svg style="width:16px;height:16px;vertical-align:-3px;margin-right:8px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7.5l8.5 6 8.5-6"/></svg>', iTel = '<svg style="width:16px;height:16px;vertical-align:-3px;margin-right:8px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h3.5l1.8 4.5-2.3 1.4a11 11 0 0 0 6.1 6.1l1.4-2.3 4.5 1.8V19a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>';
-const waBtn = () => `<a class="btn" href="${waLink()}"${ext()}>Message on WhatsApp</a><p style="margin-top:26px">${iMail}<a href="mailto:your-email@example.com"><b>your-email@example.com</b></a><br>${iTel}<a href="tel:+000000000000"><b>+00 000 000 000</b></a></p>`;
+const waBtn = () => `<a class="btn" href="${waLink()}"${ext()}>Message on WhatsApp</a><p style="margin-top:26px">${iMail}<a href="mailto:info@autofusion.lk"><b>info@autofusion.lk</b></a><br>${iTel}<a href="tel:+94777221182"><b>+94 777 22 11 82</b></a></p>`;
 const INFO = {
   contact: ['Contact us.', 'Questions about a product or an order? Message us and we will reply as soon as we can.', waBtn],
   track: ['Track your order.', 'Order tracking is coming soon. For an update on an existing order, message us with your name and the items you ordered.', waBtn],
