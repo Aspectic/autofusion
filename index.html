@@ -153,7 +153,7 @@ h2{font-size:clamp(2rem,5vw,4rem);letter-spacing:-.03em;line-height:1.05;color:v
 /* Cart and info pages */
 .crow{display:grid;grid-template-columns:72px 1fr auto auto;gap:16px;align-items:center;background:var(--card);border-radius:20px;padding:14px;margin-bottom:12px}
 .crow img{width:72px;height:72px;object-fit:cover;border-radius:12px;background:#fff}
-.cinfo h3{font-size:1rem}.cinfo span{opacity:.7;font-size:.9rem}
+.cinfo h3{font-size:1rem}.cinfo span{opacity:.7;font-size:.9rem}.cinfo a{color:inherit}
 .qty{display:flex;align-items:center;gap:10px}
 .qty button,.rm{border:2px solid var(--text);background:transparent;color:var(--text);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1.1rem;line-height:1;transition:background .3s,color .3s}
 .qty button:hover,.rm:hover{background:var(--text);color:var(--bg)}
@@ -181,6 +181,36 @@ h2{font-size:clamp(2rem,5vw,4rem);letter-spacing:-.03em;line-height:1.05;color:v
 .go{align-self:flex-start;margin-top:14px;display:inline-flex;padding:8px 16px;border-radius:99px;background:#0B0B0B;color:#fff;font-weight:600;font-size:.85rem;transition:transform .4s var(--ease)}
 .tile:hover .go{transform:translateX(6px)}
 .t4 .go,[data-theme=dark] .t2 .go,[data-theme=dark] .t3 .go{background:var(--leaf);color:#0B0B0B}
+
+/* Product pages */
+.card .pic{display:block}.card a{color:inherit}
+.pdp{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:20px;align-items:start}
+.pimg{background:#fff;border-radius:28px;overflow:hidden;aspect-ratio:1;border:1px solid var(--soft)}
+.pimg img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s var(--ease)}
+.pimg:hover img{transform:scale(1.06)}
+.pinfo h1{font-size:clamp(1.6rem,3.5vw,2.6rem);letter-spacing:-.03em;line-height:1.1;color:var(--text);margin-top:12px}
+.pprice{font-size:1.8rem;font-weight:800;margin:12px 0 6px}
+.stock{display:flex;align-items:center;gap:8px;font-weight:600;font-size:.95rem}
+.stock i{width:10px;height:10px;border-radius:50%;background:#22C55E}
+.stock.low i{background:#F59E0B}.stock.out i{background:#EF4444}
+.pdesc{margin:14px 0;opacity:.8}
+.plabel{margin:18px 0 8px;font-size:.9rem}
+.swatches{display:flex;gap:14px}
+.sw{width:38px;height:38px;border-radius:50%;background:var(--c);border:2px solid var(--soft);cursor:pointer;position:relative;transition:transform .3s var(--ease)}
+.sw:hover{transform:scale(1.1)}
+.sw.on{outline:3px solid var(--text);outline-offset:3px}
+.sw.na::after{content:'';position:absolute;inset:-2px;border-radius:50%;background:linear-gradient(135deg,transparent 46%,#EF4444 47% 53%,transparent 54%)}
+.qty b{min-width:2ch;text-align:center}
+.qty button[disabled]{opacity:.3;cursor:not-allowed}
+.pbtns{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.pbtns .btn{margin-top:0}
+button.btn{border:0;font:inherit;font-weight:600;cursor:pointer}
+.btn[disabled]{opacity:.4;cursor:not-allowed;transform:none}
+.page .btn.ghost{background:transparent;color:var(--text);border:2px solid var(--text)}
+.pnote{margin-top:12px;font-size:.9rem;min-height:1.4em;font-weight:600}
+.pdet{margin:20px 0 0;padding-left:20px;opacity:.8}
+.cinfo span{display:block}
+@media (max-width:760px){.pdp{grid-template-columns:1fr}}
 
 /* Footer */
 .foot{background:#0A0A0C;color:#cfcfc8;padding:80px 5vw 0}
@@ -242,10 +272,10 @@ h2{font-size:clamp(2rem,5vw,4rem);letter-spacing:-.03em;line-height:1.05;color:v
       <p class="tagline">Shop car accessories online: steering wheels, car audio and OBD HUDs.</p>
       <a class="btn" href="#picks">Shop now</a>
       <div class="thumbs">
-        <a href="#/car-audio" aria-label="Car audio"><img src="products/carplay.jpg" alt="Apple CarPlay player"></a>
-        <a href="#/steering-wheels" aria-label="Steering wheels"><img src="products/momo-suede.jpg" alt="Suede steering wheel"></a>
-        <a href="#/steering-wheels" aria-label="Steering wheels"><img src="products/quickrelease.jpg" alt="Quick-release hub"></a>
-        <a href="#/obd-huds" aria-label="OBD HUDs"><img src="products/obd-hud.jpg" alt="OBD2 HUD display"></a>
+        <a href="#/product/carplay" aria-label="Apple CarPlay player"><img src="products/carplay.jpg" alt="Apple CarPlay player"></a>
+        <a href="#/product/momo" aria-label="MOMO suede steering wheel"><img src="products/momo-suede.jpg" alt="Suede steering wheel"></a>
+        <a href="#/product/jdm" aria-label="JDM black steering wheel"><img src="products/quickrelease.jpg" alt="Quick-release hub"></a>
+        <a href="#/product/hud" aria-label="OBD2 HUD display"><img src="products/obd-hud.jpg" alt="OBD2 HUD display"></a>
       </div>
     </div>
     <p class="sub" id="sub">Rev up your ride.</p>
@@ -320,10 +350,10 @@ h2{font-size:clamp(2rem,5vw,4rem);letter-spacing:-.03em;line-height:1.05;color:v
     <div class="vals"><label>Min price<b id="minv">LKR 16,000</b></label><label>Max price<b id="maxv">LKR 25,000</b></label></div>
   </div>
   <div class="products">
-    <article class="card reveal" data-cat="car-audio" data-price="25000" style="--d:0s"><div class="pic"><img src="products/carplay.jpg" alt="Apple CarPlay Universal Player" loading="lazy"></div><span class="cat">Car audio</span><h3>Apple CarPlay Universal Player</h3><div class="row"><span class="price">LKR 25,000</span><button class="add" aria-label="Add Apple CarPlay Universal Player to cart">+</button></div></article>
-    <article class="card reveal" data-cat="steering-wheels" data-price="17500" style="--d:0.1s"><div class="pic"><img src="products/quickrelease.jpg" alt="JDM Black Steering Wheel" loading="lazy"></div><span class="cat">Steering wheels</span><h3>JDM Black Steering Wheel</h3><div class="row"><span class="price">LKR 17,500</span><button class="add" aria-label="Add JDM Black Steering Wheel to cart">+</button></div></article>
-    <article class="card reveal" data-cat="steering-wheels" data-price="25000" style="--d:0.2s"><div class="pic"><img src="products/momo-suede.jpg" alt="Limited Edition Suede Leather MOMO Steering Wheel" loading="lazy"></div><span class="cat">Steering wheels</span><h3>Limited Edition Suede Leather MOMO Steering Wheel</h3><div class="row"><span class="price">LKR 25,000</span><button class="add" aria-label="Add Limited Edition Suede Leather MOMO Steering Wheel to cart">+</button></div></article>
-    <article class="card reveal" data-cat="obd-huds" data-price="16000" style="--d:0.3s"><div class="pic"><img src="products/obd-hud.jpg" alt="OBD2 HUD Display" loading="lazy"></div><span class="cat">Car OBD HUDs</span><h3>OBD2 HUD Display</h3><div class="row"><span class="price">LKR 16,000</span><button class="add" aria-label="Add OBD2 HUD Display to cart">+</button></div></article>
+    <article class="card reveal" data-id="carplay" data-cat="car-audio" data-price="25000" style="--d:0s"><a class="pic" href="#/product/carplay"><img src="products/carplay.jpg" alt="Apple CarPlay Universal Player" loading="lazy"></a><span class="cat">Car audio</span><h3><a href="#/product/carplay">Apple CarPlay Universal Player</a></h3><div class="row"><span class="price">LKR 25,000</span><button class="add" aria-label="Add Apple CarPlay Universal Player to cart">+</button></div></article>
+    <article class="card reveal" data-id="jdm" data-cat="steering-wheels" data-price="17500" style="--d:0.1s"><a class="pic" href="#/product/jdm"><img src="products/quickrelease.jpg" alt="JDM Black Steering Wheel" loading="lazy"></a><span class="cat">Steering wheels</span><h3><a href="#/product/jdm">JDM Black Steering Wheel</a></h3><div class="row"><span class="price">LKR 17,500</span><button class="add" aria-label="Add JDM Black Steering Wheel to cart">+</button></div></article>
+    <article class="card reveal" data-id="momo" data-cat="steering-wheels" data-price="25000" style="--d:0.2s"><a class="pic" href="#/product/momo"><img src="products/momo-suede.jpg" alt="Limited Edition Suede Leather MOMO Steering Wheel" loading="lazy"></a><span class="cat">Steering wheels</span><h3><a href="#/product/momo">Limited Edition Suede Leather MOMO Steering Wheel</a></h3><div class="row"><span class="price">LKR 25,000</span><button class="add" aria-label="Add Limited Edition Suede Leather MOMO Steering Wheel to cart">+</button></div></article>
+    <article class="card reveal" data-id="hud" data-cat="obd-huds" data-price="16000" style="--d:0.3s"><a class="pic" href="#/product/hud"><img src="products/obd-hud.jpg" alt="OBD2 HUD Display" loading="lazy"></a><span class="cat">Car OBD HUDs</span><h3><a href="#/product/hud">OBD2 HUD Display</a></h3><div class="row"><span class="price">LKR 16,000</span><button class="add" aria-label="Add OBD2 HUD Display to cart">+</button></div></article>
   </div>
   <p class="empty" id="empty" hidden>No products in this price range. Move the sliders to widen it.</p>
 </section>
@@ -458,6 +488,55 @@ document.addEventListener('mouseout', e => {
 // Cart: items are saved in the browser
 const cartItems = {};
 try { Object.assign(cartItems, JSON.parse(localStorage.getItem('cart') || '{}')); } catch (e) {}
+Object.keys(cartItems).forEach(k => { if (!cartItems[k].id) delete cartItems[k]; });
+
+// PRODUCT DATA: edit names, prices, colors and stock numbers here
+const PRODUCTS = {
+  carplay: {name: 'Apple CarPlay Universal Player', price: 25000, cat: 'car-audio', catLabel: 'Car audio', img: 'products/carplay.jpg',
+    desc: 'A universal Apple CarPlay player for your dash.', details: ['Universal fit', 'Apple CarPlay', 'Category: Car audio'],
+    colors: {Black: {hex: '#111111', stock: 12}}},
+  jdm: {name: 'JDM Black Steering Wheel', price: 17500, cat: 'steering-wheels', catLabel: 'Steering wheels', img: 'products/quickrelease.jpg',
+    desc: 'A JDM-style black steering wheel.', details: ['JDM style', 'Black finish', 'Category: Steering wheels'],
+    colors: {Black: {hex: '#111111', stock: 8}, Silver: {hex: '#C0C0C0', stock: 3}}},
+  momo: {name: 'Limited Edition Suede Leather MOMO Steering Wheel', price: 25000, cat: 'steering-wheels', catLabel: 'Steering wheels', img: 'products/momo-suede.jpg',
+    desc: 'A limited edition MOMO steering wheel in suede leather.', details: ['Suede leather', 'Limited edition', 'MOMO'],
+    colors: {Black: {hex: '#111111', stock: 2}}},
+  hud: {name: 'OBD2 HUD Display', price: 16000, cat: 'obd-huds', catLabel: 'OBD HUDs', img: 'products/obd-hud.jpg',
+    desc: "A head-up display for your car's OBD2 system.", details: ['OBD2 compatible', 'Head-up display', 'Category: OBD HUDs'],
+    colors: {Black: {hex: '#111111', stock: 15}}}
+};
+const firstColor = p => Object.keys(p.colors).find(c => p.colors[c].stock > 0) || Object.keys(p.colors)[0];
+const stockLabel = n => n === 0 ? ['out', 'Out of stock'] : n <= 5 ? ['low', `Only ${n} left`] : ['in', `In stock (${n} available)`];
+function addToCart(id, color, qty){
+  const p = PRODUCTS[id], stock = p.colors[color].stock, key = id + '|' + color;
+  const it = cartItems[key] || (cartItems[key] = {key, id, color, name: p.name, price: p.price, img: p.img, qty: 0});
+  const can = Math.max(0, Math.min(qty, stock - it.qty));
+  it.qty += can; if (!it.qty) delete cartItems[key];
+  saveCart(); if (can) bump();
+  return can;
+}
+let sel = {id: '', color: '', qty: 1};
+function productHtml(){
+  const p = PRODUCTS[sel.id], st = p.colors[sel.color].stock, [cls, txt] = stockLabel(st), out = st === 0;
+  return `<section class="block page"><a class="back" href="#/${p.cat}">&larr; Back to ${p.catLabel}</a>
+    <div class="pdp"><div class="pimg"><img src="${p.img}" alt="${p.name}"></div>
+    <div class="pinfo"><span class="cat" style="background:var(--leaf);color:#0B0B0B;font-size:.75rem;font-weight:600;padding:3px 10px;border-radius:99px">${p.catLabel}</span>
+    <h1>${p.name}</h1><div class="pprice">${lkr(p.price)}</div>
+    <div class="stock ${cls}"><i></i>${txt}</div><p class="pdesc">${p.desc}</p>
+    <div class="plabel">Color: <b>${sel.color}</b></div>
+    <div class="swatches">${Object.entries(p.colors).map(([n, c]) => `<button class="sw${n === sel.color ? ' on' : ''}${c.stock === 0 ? ' na' : ''}" data-color="${n}" style="--c:${c.hex}" aria-label="${n}${c.stock === 0 ? ' (out of stock)' : ''}"></button>`).join('')}</div>
+    <div class="plabel">Quantity</div>
+    <div class="qty"><button data-pq="-1" aria-label="Decrease quantity">&minus;</button><b>${sel.qty}</b><button data-pq="1" aria-label="Increase quantity">+</button></div>
+    <div class="pbtns"><button class="btn" data-buy${out ? ' disabled' : ''}>Buy now</button><button class="btn ghost" data-addp${out ? ' disabled' : ''}>Add to cart</button></div>
+    <p class="pnote" id="pnote"></p>
+    <ul class="pdet">${p.details.map(d => `<li>${d}</li>`).join('')}</ul></div></div></section>`;
+}
+function buyNow(){
+  const p = PRODUCTS[sel.id];
+  if (!WHATSAPP){ location.hash = '#/contact'; return; }
+  const msg = `Hi Auto Fusion, I would like to buy now:\n${sel.qty} x ${p.name} (${sel.color})\nTotal: ${lkr(p.price * sel.qty)}`;
+  window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
+}
 const cartCount = () => Object.values(cartItems).reduce((s, i) => s + i.qty, 0);
 function saveCart(){ try { localStorage.setItem('cart', JSON.stringify(cartItems)); } catch (e) {} $('#count').textContent = cartCount(); }
 $('#count').textContent = cartCount();
@@ -469,26 +548,36 @@ const waLink = () => WHATSAPP ? `https://wa.me/${WHATSAPP}` : '#/contact';
 const ext = () => WHATSAPP ? ' target="_blank" rel="noopener"' : '';
 function orderLink(items, total){
   if (!WHATSAPP) return '#/contact';
-  const msg = 'Hi Auto Fusion, I would like to order:\n' + items.map(i => `${i.qty} x ${i.name} (${lkr(i.price * i.qty)})`).join('\n') + `\nTotal: ${lkr(total)}`;
+  const msg = 'Hi Auto Fusion, I would like to order:\n' + items.map(i => `${i.qty} x ${i.name} (${i.color}) - ${lkr(i.price * i.qty)}`).join('\n') + `\nTotal: ${lkr(total)}`;
   return `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
 }
 function cartHtml(){
   const items = Object.values(cartItems), total = items.reduce((s, i) => s + i.price * i.qty, 0);
   return `<section class="block page"><a class="back" href="#shop">&larr; Continue shopping</a><h2>Your cart.</h2>` + (items.length
-    ? `<div style="margin-top:30px">${items.map(i => `<div class="crow"><img src="${i.img}" alt=""><div class="cinfo"><h3>${i.name}</h3><span>${lkr(i.price)}</span></div><div class="qty"><button data-n="${i.name}" data-q="-1" aria-label="Decrease quantity">&minus;</button><b>${i.qty}</b><button data-n="${i.name}" data-q="1" aria-label="Increase quantity">+</button></div><button class="rm" data-rm="${i.name}" aria-label="Remove item">&times;</button></div>`).join('')}</div>
+    ? `<div style="margin-top:30px">${items.map(i => `<div class="crow"><img src="${i.img}" alt=""><div class="cinfo"><h3><a href="#/product/${i.id}">${i.name}</a></h3><span>${i.color}</span><span>${lkr(i.price)}</span></div><div class="qty"><button data-n="${i.key}" data-q="-1" aria-label="Decrease quantity">&minus;</button><b>${i.qty}</b><button data-n="${i.key}" data-q="1" aria-label="Increase quantity"${PRODUCTS[i.id] && i.qty >= PRODUCTS[i.id].colors[i.color].stock ? ' disabled' : ''}>+</button></div><button class="rm" data-rm="${i.key}" aria-label="Remove item">&times;</button></div>`).join('')}</div>
        <div class="ctotal"><span>Total</span><b>${lkr(total)}</b></div><a class="btn" href="${orderLink(items, total)}"${ext()}>Order on WhatsApp</a>`
     : `<p class="lead">Your cart is empty.</p><a class="btn" href="#picks">Shop products</a>`) + `</section>`;
 }
 document.addEventListener('click', e => {
   const add = e.target.closest('.add');
   if (add){
-    const c = add.closest('.card'), name = c.querySelector('h3').textContent;
-    const it = cartItems[name] || (cartItems[name] = {name, price: +c.dataset.price, img: c.querySelector('img').getAttribute('src'), qty: 0});
-    it.qty++; saveCart(); bump(); return;
+    const id = add.closest('.card').dataset.id, col = firstColor(PRODUCTS[id]);
+    if (PRODUCTS[id].colors[col].stock > 0) addToCart(id, col, 1);
+    return;
   }
+  const sw = e.target.closest('[data-color]');
+  if (sw){ sel.color = sw.dataset.color; sel.qty = 1; route(true); return; }
+  const pq = e.target.closest('[data-pq]');
+  if (pq){ const max = Math.max(1, PRODUCTS[sel.id].colors[sel.color].stock); sel.qty = Math.min(Math.max(1, sel.qty + +pq.dataset.pq), max); route(true); return; }
+  if (e.target.closest('[data-addp]')){
+    const can = addToCart(sel.id, sel.color, sel.qty), n = $('#pnote');
+    if (n) n.textContent = can ? 'Added to your cart.' : 'You already have the maximum available in your cart.';
+    return;
+  }
+  if (e.target.closest('[data-buy]')){ buyNow(); return; }
   const q = e.target.closest('[data-q]');
   if (q && cartItems[q.dataset.n]){
-    const it = cartItems[q.dataset.n]; it.qty += +q.dataset.q;
+    const it = cartItems[q.dataset.n], max = PRODUCTS[it.id] ? PRODUCTS[it.id].colors[it.color].stock : 99; it.qty = Math.min(it.qty + +q.dataset.q, max);
     if (it.qty < 1) delete cartItems[q.dataset.n];
     saveCart(); route(true); return;
   }
@@ -524,6 +613,10 @@ function route(keep){
   const h = location.hash, m = h.match(/^#\/(.+)/), key = m && m[1], c = key && CATS[key];
   let html = '';
   if (key === 'cart') html = cartHtml();
+  else if (key && key.startsWith('product/') && PRODUCTS[key.slice(8)]){
+    if (keep !== true){ const id = key.slice(8); sel = {id, color: firstColor(PRODUCTS[id]), qty: 1}; }
+    html = productHtml();
+  }
   else if (key && INFO[key]) html = `<section class="block page"><a class="back" href="#shop">&larr; Back to shop</a><h2>${INFO[key][0]}</h2><p class="lead">${INFO[key][1]}</p>${INFO[key][2]()}</section>`;
   else if (c) html = `<section class="block page"><a class="back" href="#shop">&larr; Back to shop</a><h2>${c[0]}</h2><p class="lead">${c[1]}</p>` +
       (key === 'coming-soon'
